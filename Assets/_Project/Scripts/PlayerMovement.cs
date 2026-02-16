@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     private Vector2 moveInput;
+    public bool isAttacking;
+
 
     void Awake()
     {

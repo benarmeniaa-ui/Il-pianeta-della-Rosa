@@ -506,6 +506,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1804483544 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4358699271462395288, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+  m_PrefabInstance: {fileID: 2604991735431969349}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1804483552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804483544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daeed8fe1aed9b34c98659c62a24dc33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
+  starPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  attackCooldown: 0.5
 --- !u!1 &1905377689 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6809664358155959372, guid: 683bda60f1877cd4ca8379d815990dd5, type: 3}
@@ -624,6 +644,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 898924523448440258, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 898924523448440258, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_ActionId
+      value: 3f889aa3-3432-42a6-8b01-275b0def010d
+      objectReference: {fileID: 0}
+    - target: {fileID: 898924523448440258, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_ActionName
+      value: 'Player/Attack[/Keyboard/space]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 898924523448440258, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 898924523448440258, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 898924523448440258, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1804483552}
+    - target: {fileID: 898924523448440258, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 898924523448440258, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 898924523448440258, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerCombat, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 898924523448440258, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4358699271462395288, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
       propertyPath: m_Name
       value: Player
@@ -668,10 +728,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: isAttacking
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6712330328194336519, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4358699271462395288, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 1804483552}
   m_SourcePrefab: {fileID: 100100000, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
 --- !u!1001 &3974142250159724657
 PrefabInstance:
