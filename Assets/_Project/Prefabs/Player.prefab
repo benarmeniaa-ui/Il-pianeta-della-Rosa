@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5521637186707538439}
   - component: {fileID: 7047433575931771651}
-  - component: {fileID: 6712330328194336519}
   - component: {fileID: 3945572602886210136}
   - component: {fileID: 6674642902698610231}
   - component: {fileID: 898924523448440258}
@@ -96,28 +95,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!95 &6712330328194336519
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4358699271462395288}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b4475bb804fc40240bb9b170616363e5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!50 &3945572602886210136
 Rigidbody2D:
   serializedVersion: 5
@@ -158,6 +135,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   speed: 3
+  bulletSpeed: 10
+  spriteRenderer: {fileID: 7047433575931771651}
+  starPrefab: {fileID: 2018495868497503879, guid: 9984f96b6843a234b97c3a1951c26d2b, type: 3}
+  firePoint: {fileID: 0}
+  idleSprites:
+  - {fileID: 21300000, guid: 24bc61fe9fef60743a2854bfeccfdfaa, type: 3}
+  - {fileID: 21300000, guid: 9d435526658d8664bbec9c544664fe7d, type: 3}
+  - {fileID: 21300000, guid: dfdff7f5b807da645b56a9b5b982a7c0, type: 3}
+  - {fileID: 21300000, guid: a54de3da1b477514ea31d5f437748326, type: 3}
+  - {fileID: 21300000, guid: 02d5fb3a66f2fff42955d9a7d951ab95, type: 3}
+  - {fileID: 21300000, guid: e4bc6c5d20117fa41abc46ffff8ad48c, type: 3}
+  - {fileID: 21300000, guid: 8970253b33a3afd4db938966189c3d4c, type: 3}
+  walkSprites:
+  - {fileID: 21300000, guid: e1f82b358de264e4dac3f42f447677d8, type: 3}
+  - {fileID: 21300000, guid: 7c53ebb490793a9449233c19beca9bed, type: 3}
+  - {fileID: 21300000, guid: b10c1e6346af4b942b40f0a933bc6383, type: 3}
+  - {fileID: 21300000, guid: d86d185d736007f46b8f049fec42e555, type: 3}
+  - {fileID: 21300000, guid: 77d9d8d1b8d050442bc4457285f6d239, type: 3}
+  - {fileID: 21300000, guid: 3ff99d25339fabe4a9066a08a2b77854, type: 3}
+  - {fileID: 21300000, guid: 6d7df82e4795c844e8f0515018037bca, type: 3}
+  attackSprites:
+  - {fileID: 21300000, guid: dba1f885a56d85346b345e99572fc0e3, type: 3}
+  - {fileID: 21300000, guid: 5edde73953f46c84a9d013f5c7970264, type: 3}
+  - {fileID: 21300000, guid: c8e4a9d2ca62098449e1b715cb1e2a8c, type: 3}
+  - {fileID: 21300000, guid: 489191cd9a2e8bb4e8da9ffead18f782, type: 3}
+  - {fileID: 21300000, guid: 2ebcc5a5547dbc049b0f56929ced096b, type: 3}
+  animationFPS: 12
+  attackDuration: 0.5
 --- !u!114 &898924523448440258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +204,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7eee0af9-f06f-4e0d-9a70-c739427e28d6
     m_ActionName: 'Player/Move[/Keyboard/a,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3f889aa3-3432-42a6-8b01-275b0def010d
+    m_ActionName: 'Player/Attack[/Keyboard/space]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
