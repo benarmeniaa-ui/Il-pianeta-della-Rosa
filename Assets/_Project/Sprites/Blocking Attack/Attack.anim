@@ -41,22 +41,8 @@ AnimationClip:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings:
-    - serializedVersion: 2
-      path: 0
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 212
-      customType: 23
-      isPPtrCurve: 1
-      isIntCurve: 0
-      isSerializeReferenceCurve: 0
-    pptrCurveMapping:
-    - {fileID: 21300000, guid: dba1f885a56d85346b345e99572fc0e3, type: 3}
-    - {fileID: 21300000, guid: 5edde73953f46c84a9d013f5c7970264, type: 3}
-    - {fileID: 21300000, guid: c8e4a9d2ca62098449e1b715cb1e2a8c, type: 3}
-    - {fileID: 21300000, guid: 489191cd9a2e8bb4e8da9ffead18f782, type: 3}
-    - {fileID: 21300000, guid: 2ebcc5a5547dbc049b0f56929ced096b, type: 3}
+    genericBindings: []
+    pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -81,11 +67,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0.33333334
-    functionName: SpawnStar
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []
