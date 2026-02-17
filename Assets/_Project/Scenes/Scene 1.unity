@@ -340,6 +340,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1089286347
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1089286349}
+  - component: {fileID: 1089286348}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1089286348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089286347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42d65a9a623819a499cbf452baae0b45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  gameOverUI: {fileID: 0}
+  lives: 15
+--- !u!4 &1089286349
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089286347}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1102325511
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,6 +583,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1804483551}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1747323608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1747323609}
+  m_Layer: 0
+  m_Name: ShootPointBoss
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1747323609
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747323608}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.55, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1905377701}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1804483544 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4358699271462395288, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
@@ -612,7 +689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e990826066cf1d447b846ba12821cad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
-  health: 15
+  health: 10
 --- !u!114 &1905377698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -631,6 +708,11 @@ MonoBehaviour:
   idleSprites: []
   walkSprites: []
   animationFPS: 10
+--- !u!4 &1905377701 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1390080680764648139, guid: 683bda60f1877cd4ca8379d815990dd5, type: 3}
+  m_PrefabInstance: {fileID: 3974142250159724657}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1938489032
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,9 +856,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 1364123993}
+    - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: animationFPS
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
       propertyPath: attackDuration
       value: 0.3
@@ -805,6 +895,10 @@ PrefabInstance:
       propertyPath: 'attackSprites.Array.data[3]'
       value: 
       objectReference: {fileID: 21300000, guid: 2ebcc5a5547dbc049b0f56929ced096b, type: 3}
+    - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: 'attackSprites.Array.data[4]'
+      value: 
+      objectReference: {fileID: 21300000, guid: dba1f885a56d85346b345e99572fc0e3, type: 3}
     - target: {fileID: 6712330328194336519, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -882,7 +976,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1390080680764648139, guid: 683bda60f1877cd4ca8379d815990dd5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1747323609}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6809664358155959372, guid: 683bda60f1877cd4ca8379d815990dd5, type: 3}
       insertIndex: -1
@@ -904,3 +1001,4 @@ SceneRoots:
   - {fileID: 1938489034}
   - {fileID: 2604991735431969349}
   - {fileID: 1102325515}
+  - {fileID: 1089286349}
