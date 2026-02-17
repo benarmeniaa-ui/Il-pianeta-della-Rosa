@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem; // 1. Aggiungi questa riga in alto!
 
 [DefaultExecutionOrder(-1)]
 public class GameManager : MonoBehaviour
@@ -24,12 +25,13 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        gameOverUI.SetActive(false);
+        if (gameOverUI != null) gameOverUI.SetActive(false);
     }
 
     private void Update()
     {
-        if (isGameOver && Input.GetKeyDown(KeyCode.R))
+        // 2. Modifica qui per usare il nuovo Input System
+        if (isGameOver && Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame)
         {
             RestartGame();
         }
@@ -38,7 +40,6 @@ public class GameManager : MonoBehaviour
     public void PlayerHit()
     {
         lives--;
-
         Debug.Log("Vite rimaste: " + lives);
 
         if (lives <= 0)
@@ -50,11 +51,11 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         isGameOver = true;
-        gameOverUI.SetActive(true);
-        Time.timeScale = 0f; // Ferma il gioco
+        if (gameOverUI != null) gameOverUI.SetActive(true);
+        Time.timeScale = 0f; 
     }
 
-    private void RestartGame()
+    public void RestartGame() // Messa pubblica così puoi usarla anche dai bottoni UI
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
