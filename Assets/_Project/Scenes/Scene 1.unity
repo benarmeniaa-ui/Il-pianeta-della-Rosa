@@ -704,7 +704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossFollowMovement
   player: {fileID: 1804483551}
   bossSpeed: 2.5
-  stopDistance: 0.5
+  stopDistance: 0
   idleSprites: []
   walkSprites: []
   animationFPS: 10
@@ -713,6 +713,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1390080680764648139, guid: 683bda60f1877cd4ca8379d815990dd5, type: 3}
   m_PrefabInstance: {fileID: 3974142250159724657}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1905377702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905377689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe45ab753d5d60b40b7f672434509a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossAttack
+  projectilePrefab: {fileID: 50844600244041997, guid: ba8f2b7958851a94cbf8859148565ed3, type: 3}
+  firePoint: {fileID: 1747323609}
+  projectileSpeed: 8
+  fireRate: 1
 --- !u!1 &1938489032
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,6 +1006,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6809664358155959372, guid: 683bda60f1877cd4ca8379d815990dd5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1905377698}
+    - targetCorrespondingSourceObject: {fileID: 6809664358155959372, guid: 683bda60f1877cd4ca8379d815990dd5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1905377702}
   m_SourcePrefab: {fileID: 100100000, guid: 683bda60f1877cd4ca8379d815990dd5, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
