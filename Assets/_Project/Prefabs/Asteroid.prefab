@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3789887510252713875}
   - component: {fileID: -6868940525742022462}
   - component: {fileID: -5634989554129283080}
-  - component: {fileID: -8273293538017185969}
   - component: {fileID: 1204721868191659535}
+  - component: {fileID: 8633307608910372455}
   m_Layer: 0
   m_Name: Asteroid
   m_TagString: Untagged
@@ -144,8 +144,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &-8273293538017185969
-BoxCollider2D:
+--- !u!114 &1204721868191659535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50844600244041997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d45673018cadc3445beb41cf09680437, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossProjectile
+--- !u!58 &8633307608910372455
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -178,27 +190,5 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.625, y: 0.625}
-    newSize: {x: 0.625, y: 0.625}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.625, y: 0.625}
-  m_EdgeRadius: 0
---- !u!114 &1204721868191659535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 50844600244041997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d45673018cadc3445beb41cf09680437, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BossProjectile
+  m_Offset: {x: -0.010280043, y: 0.01976937}
+  m_Radius: 0.1527634
