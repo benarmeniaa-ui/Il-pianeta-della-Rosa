@@ -18,6 +18,14 @@ public class Boss : MonoBehaviour
     private void Die()
     {
         Debug.Log("Boss sconfitto!");
+
+        // 1. Comunichiamo al GameManager che abbiamo vinto
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.WinGame();
+        }
+
+        // 2. Disattiviamo il Boss
         gameObject.SetActive(false);
     }
 }
