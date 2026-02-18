@@ -1909,6 +1909,7 @@ GameObject:
   - component: {fileID: 1882345652}
   - component: {fileID: 1882345654}
   - component: {fileID: 1882345653}
+  - component: {fileID: 1882345655}
   m_Layer: 5
   m_Name: LevelSelectPanel
   m_TagString: Untagged
@@ -1974,6 +1975,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1882345651}
   m_CullTransparentMesh: 1
+--- !u!114 &1882345655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882345651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb5e462578140144b5929e48434549d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
+  container: {fileID: 2055311931}
+  spaceBetweenPlanets: 400
+  lerpSpeed: 10
+  totalLevels: 3
 --- !u!1 &2055311930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1983,7 +2000,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2055311931}
-  - component: {fileID: 2055311932}
   m_Layer: 0
   m_Name: LevelContainer
   m_TagString: Untagged
@@ -2013,22 +2029,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2055311932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2055311930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fb5e462578140144b5929e48434549d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
-  container: {fileID: 2055311931}
-  spaceBetweenPlanets: 8
-  lerpSpeed: 10
-  totalLevels: 3
 --- !u!1 &2106746870
 GameObject:
   m_ObjectHideFlags: 0
