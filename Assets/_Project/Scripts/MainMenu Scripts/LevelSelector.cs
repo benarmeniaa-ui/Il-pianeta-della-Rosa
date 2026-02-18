@@ -8,7 +8,7 @@ public class LevelSelector : MonoBehaviour
     public RectTransform container; // Trascina qui il LevelContainer
     
     [Header("Impostazioni")]
-    public float spaceBetweenPlanets = 1000f; // La distanza esatta tra un pianeta e l'altro
+    public float spaceBetweenPlanets = 8f; // La distanza esatta tra un pianeta e l'altro
     public float lerpSpeed = 10f;             // Velocità della transizione fluida
     public int totalLevels = 8;
 
