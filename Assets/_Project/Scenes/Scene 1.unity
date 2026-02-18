@@ -4034,33 +4034,97 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1804483557}
     - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: idleSprites.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: walkSprites.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
       propertyPath: attackSprites.Array.size
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: 'idleSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 859a97db7615ca849bdd44c20ab0e8bf, type: 3}
+    - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: 'idleSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 859a97db7615ca849bdd44c20ab0e8bf, type: 3}
+    - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: 'idleSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 21300000, guid: bc2b3b8b523b9944ab773694a4c72791, type: 3}
+    - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: 'idleSprites.Array.data[3]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 3070758548f491b47815b14ae9da223a, type: 3}
+    - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: 'idleSprites.Array.data[4]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 2fcd7e929808fd34d8dcdf35d583a5a8, type: 3}
+    - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: 'idleSprites.Array.data[5]'
+      value: 
+      objectReference: {fileID: 21300000, guid: b526b56d90e59164d86904d57d95f524, type: 3}
+    - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: 'idleSprites.Array.data[6]'
+      value: 
+      objectReference: {fileID: 21300000, guid: b526b56d90e59164d86904d57d95f524, type: 3}
+    - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: 'walkSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 90b5808b17da34d4abe82571cc6b8622, type: 3}
+    - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: 'walkSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 253e19e15f651794ca9576929de736cf, type: 3}
+    - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: 'walkSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 21300000, guid: bbedefebaf2c0e745ad32f7f601f5507, type: 3}
+    - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: 'walkSprites.Array.data[3]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 7822dc6a47b869941a3e9315c91c56a7, type: 3}
+    - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: 'walkSprites.Array.data[4]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 17406595977986f40949ccfc7d68d865, type: 3}
+    - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: 'walkSprites.Array.data[5]'
+      value: 
+      objectReference: {fileID: 21300000, guid: c5039ef5ae559d84896333c785c18be5, type: 3}
+    - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
       propertyPath: 'attackSprites.Array.data[0]'
       value: 
-      objectReference: {fileID: 21300000, guid: 5edde73953f46c84a9d013f5c7970264, type: 3}
+      objectReference: {fileID: 21300000, guid: feb1b0adcae070746b513f6d2e027901, type: 3}
     - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
       propertyPath: 'attackSprites.Array.data[1]'
       value: 
-      objectReference: {fileID: 21300000, guid: c8e4a9d2ca62098449e1b715cb1e2a8c, type: 3}
+      objectReference: {fileID: 21300000, guid: a607272374eda534588ea8cecd46b602, type: 3}
     - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
       propertyPath: 'attackSprites.Array.data[2]'
       value: 
-      objectReference: {fileID: 21300000, guid: 489191cd9a2e8bb4e8da9ffead18f782, type: 3}
+      objectReference: {fileID: 21300000, guid: 207fae0f4bba30d4fbb72c47f5f7d67d, type: 3}
     - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
       propertyPath: 'attackSprites.Array.data[3]'
       value: 
-      objectReference: {fileID: 21300000, guid: 2ebcc5a5547dbc049b0f56929ced096b, type: 3}
+      objectReference: {fileID: 21300000, guid: df8aa03d54ff3544584edc3f0e636257, type: 3}
     - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
       propertyPath: 'attackSprites.Array.data[4]'
       value: 
-      objectReference: {fileID: 21300000, guid: dba1f885a56d85346b345e99572fc0e3, type: 3}
+      objectReference: {fileID: 21300000, guid: df8aa03d54ff3544584edc3f0e636257, type: 3}
     - target: {fileID: 6712330328194336519, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7047433575931771651, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 859a97db7615ca849bdd44c20ab0e8bf, type: 3}
     - target: {fileID: 7047433575931771651, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
       propertyPath: m_Enabled
       value: 1
