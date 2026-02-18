@@ -3,28 +3,56 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    public GameObject mainButtonsPanel;
-    public GameObject levelSelectPanel;
+    [Header("Pannelli UI")]
+    public GameObject mainButtonsPanel;  // Il pannello con Start, Level Select, ecc.
+    public GameObject levelSelectPanel;  // Il pannello con il carosello dei pianeti
+    public GameObject creditsPanel;      // Il pannello con i nomi degli autori
 
-    public void StartGame() // Collegato al tasto START
+    void Start()
     {
-        SceneManager.LoadScene(1); // Carica il primo livello
+        // All'avvio, mostriamo solo i tasti principali
+        ShowMainButtons();
     }
 
-    public void OpenLevelSelect() // Collegato al tasto LEVEL SELECT
+    // --- FUNZIONI PER I BOTTONI ---
+
+    public void StartGame()
+    {
+        // Carica direttamente il Livello 1 (Index 1 nelle Build Settings)
+        SceneManager.LoadScene(1);
+    }
+
+    public void OpenLevelSelect()
     {
         mainButtonsPanel.SetActive(false);
         levelSelectPanel.SetActive(true);
+        creditsPanel.SetActive(false);
     }
 
-    public void CloseLevelSelect() // Per tornare indietro
+    public void OpenCredits()
     {
+        mainButtonsPanel.SetActive(false);
         levelSelectPanel.SetActive(false);
-        mainButtonsPanel.SetActive(true);
+        creditsPanel.SetActive(true);
     }
 
-    public void ExitGame() // Collegato al tasto EXIT
+    public void ShowMainButtons()
     {
-        Application.Quit();
+        mainButtonsPanel.SetActive(true);
+        levelSelectPanel.SetActive(false);
+        creditsPanel.SetActive(false);
+    }
+
+    public void ExitGame()
+    {
+        Debug.Log("Uscita dal gioco...");
+
+        // Se siamo dentro l'Editor di Unity
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            // Se il gioco è buildato (versione finale)
+            Application.Quit();
+        #endif
     }
 }
