@@ -7,12 +7,13 @@ public class LevelSelector : MonoBehaviour
     [System.Serializable]
     public class LevelGroup
     {
-        public GameObject lockedVisual;   // Trascina qui l'oggetto con grafica nera e "???"
-        public GameObject unlockedVisual; // Trascina qui l'oggetto con grafica a colori e Nome
+        public string planetNameDebug;    // Scrivi qui il nome (es: "Marte") per riconoscerlo nel Log
+        public GameObject lockedVisual;   // L'oggetto grigio/nero con "???"
+        public GameObject unlockedVisual; // L'oggetto a colori con il nome vero
     }
 
     [Header("Riferimenti Livelli")]
-    public LevelGroup[] levelGroups; // Configura 8 elementi nell'Inspector
+    public LevelGroup[] levelGroups; 
 
     [Header("Movimento")]
     public RectTransform container; 
@@ -26,10 +27,14 @@ public class LevelSelector : MonoBehaviour
     void Start()
     {
         targetPos = container.localPosition;
-        UpdateVisuals();
+        // Diamo un piccolo ritardo per assicurarci che Unity abbia caricato tutto
+        Invoke("UpdateVisuals", 0.1f);
     }
 
-    void OnEnable() { UpdateVisuals(); }
+    void OnEnable() 
+    { 
+        UpdateVisuals(); 
+    }
 
     void Update()
     {
@@ -47,31 +52,53 @@ public class LevelSelector : MonoBehaviour
 
         container.localPosition = Vector3.Lerp(container.localPosition, targetPos, Time.deltaTime * lerpSpeed);
 
-        // SELEZIONE LIVELLO (Tasto E)
+        // Selezione (Tasto E)
         if (Keyboard.current.eKey.wasPressedThisFrame)
         {
             SelectLevel();
         }
     }
 
-    void UpdateTargetPosition() { targetPos = new Vector3(-currentIndex * spaceBetweenPlanets, 0, 0); }
+    void UpdateTargetPosition() 
+    { 
+        targetPos = new Vector3(-currentIndex * spaceBetweenPlanets, 0, 0); 
+    }
 
     public void UpdateVisuals()
     {
-        // Forza lo sblocco del primo livello
+        // Forza lo sblocco del primo livello nei salvataggi
         PlayerPrefs.SetInt("Level_1_Unlocked", 1);
         PlayerPrefs.Save();
 
         for (int i = 0; i < levelGroups.Length; i++)
         {
-            if (levelGroups[i].lockedVisual == null || levelGroups[i].unlockedVisual == null) continue;
+            // Salta se mancano gli oggetti nell'Inspector per evitare errori
+            if (levelGroups[i].lockedVisual == null || levelGroups[i].unlockedVisual == null) 
+            {
+                continue;
+            }
 
             int levelNum = i + 1;
             bool isUnlocked = PlayerPrefs.GetInt("Level_" + levelNum + "_Unlocked", 0) == 1;
 
-            // Spegne uno e accende l'altro
-            levelGroups[i].unlockedVisual.SetActive(isUnlocked);
-            levelGroups[i].lockedVisual.SetActive(!isUnlocked);
+            // --- LOG DI CONTROLLO ---
+            // Se vedi questo in rosso nella Console, il livello è bloccato
+            string logColor = isUnlocked ? "green" : "red";
+            Debug.Log($"<color={logColor}>LIVELLO {levelNum} ({levelGroups[i].planetNameDebug}): Sbloccato = {isUnlocked}</color>");
+
+            // SPEGNIMENTO FORZATO: Reset dello stato degli oggetti
+            levelGroups[i].unlockedVisual.SetActive(false);
+            levelGroups[i].lockedVisual.SetActive(false);
+
+            // ATTIVAZIONE: Accende solo l'oggetto corretto
+            if (isUnlocked)
+            {
+                levelGroups[i].unlockedVisual.SetActive(true);
+            }
+            else
+            {
+                levelGroups[i].lockedVisual.SetActive(true);
+            }
         }
     }
 
@@ -87,7 +114,7 @@ public class LevelSelector : MonoBehaviour
         }
         else
         {
-            Debug.Log("Accesso negato: Pianeta " + levelToLoad + " bloccato.");
+            Debug.Log("<color=white>ACCESSO NEGATO: Pianeta bloccato!</color>");
         }
     }
 }
