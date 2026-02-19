@@ -1,28 +1,21 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
-using TMPro;
 
 public class LevelSelector : MonoBehaviour
 {
     [System.Serializable]
-    public class PlanetSprites
+    public class LevelGroup
     {
-        public string planetName;    // Es: "Marte"
-        public Sprite unlockedPhoto; 
-        public Sprite lockedPhoto;   
-        public TextMeshProUGUI nameText; 
+        public GameObject lockedVisual;   // Trascina qui l'oggetto con grafica nera e "???"
+        public GameObject unlockedVisual; // Trascina qui l'oggetto con grafica a colori e Nome
     }
 
-    [Header("Riferimenti")]
-    public RectTransform container; 
-    public Image[] planetUIElements; 
+    [Header("Riferimenti Livelli")]
+    public LevelGroup[] levelGroups; // Configura 8 elementi nell'Inspector
 
-    [Header("Impostazioni Grafiche")]
-    public PlanetSprites[] planetGallery; 
-    
     [Header("Movimento")]
+    public RectTransform container; 
     public float spaceBetweenPlanets = 1000f; 
     public float lerpSpeed = 10f;             
     public int totalLevels = 8;
@@ -67,22 +60,18 @@ public class LevelSelector : MonoBehaviour
     {
         // Forza lo sblocco del primo livello
         PlayerPrefs.SetInt("Level_1_Unlocked", 1);
+        PlayerPrefs.Save();
 
-        for (int i = 0; i < planetUIElements.Length; i++)
+        for (int i = 0; i < levelGroups.Length; i++)
         {
+            if (levelGroups[i].lockedVisual == null || levelGroups[i].unlockedVisual == null) continue;
+
             int levelNum = i + 1;
             bool isUnlocked = PlayerPrefs.GetInt("Level_" + levelNum + "_Unlocked", 0) == 1;
 
-            if (isUnlocked)
-            {
-                planetUIElements[i].sprite = planetGallery[i].unlockedPhoto;
-                if(planetGallery[i].nameText != null) planetGallery[i].nameText.text = planetGallery[i].planetName;
-            }
-            else
-            {
-                planetUIElements[i].sprite = planetGallery[i].lockedPhoto;
-                if(planetGallery[i].nameText != null) planetGallery[i].nameText.text = "???";
-            }
+            // Spegne uno e accende l'altro
+            levelGroups[i].unlockedVisual.SetActive(isUnlocked);
+            levelGroups[i].lockedVisual.SetActive(!isUnlocked);
         }
     }
 
@@ -94,12 +83,11 @@ public class LevelSelector : MonoBehaviour
         if (isUnlocked)
         {
             Time.timeScale = 1f;
-            // Carica la scena basandosi sul nome "Livello" + numero (es: Livello1, Livello2)
             SceneManager.LoadScene("Livello" + levelToLoad);
         }
         else
         {
-            Debug.Log("Pianeta " + levelToLoad + " è ancora bloccato!");
+            Debug.Log("Accesso negato: Pianeta " + levelToLoad + " bloccato.");
         }
     }
 }

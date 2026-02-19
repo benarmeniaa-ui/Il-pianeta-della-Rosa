@@ -56,19 +56,29 @@ public class GameManager : MonoBehaviour
     }
 
     // --- GESTIONE VITTORIA ---
- public void WinGame()
-{
-    if (isGameOver) return;
-    isVictory = true;
+    public void WinGame()
+    {
+        if (isGameOver || isVictory) return; 
+        
+        isVictory = true;
 
-    // Se siamo nel Livello 1, sblocca il Livello 2
-    int nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
-    PlayerPrefs.SetInt("Level_" + nextLevel + "_Unlocked", 1);
-    PlayerPrefs.Save();
+        // --- LOGICA DI SBLOCCO PER IL PROTOTIPO ---
+        // Otteniamo l'indice della scena attuale
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-    if (victoryUI != null) victoryUI.SetActive(true);
-    Time.timeScale = 0f;
-}
+        // Se abbiamo vinto il Livello 1 (Index 1), sblocchiamo il Livello 2
+        if (currentSceneIndex == 1)
+        {
+            PlayerPrefs.SetInt("Level_2_Unlocked", 1);
+            PlayerPrefs.Save();
+            Debug.Log("Livello 2 Sbloccato con successo!");
+        }
+        // ------------------------------------------
+
+        if (victoryUI != null) victoryUI.SetActive(true);
+        Time.timeScale = 0f; 
+    }
+
     public void RestartGame()
     {
         Time.timeScale = 1f;
