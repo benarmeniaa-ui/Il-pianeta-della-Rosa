@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9ade9e8327339d54799f4818fee7b8b0
+guid: 42942ffe7ea073943b135b43f27d0f6a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7327221540768993028
-    second: Cartografo3_0
+      213: 2736210017979298363
+    second: Lampionaio_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 27
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cartografo3_0
+      name: Lampionaio_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 9
-        width: 49
-        height: 40
+        x: 19
+        y: 16
+        width: 65
+        height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 40f40288b258fa560800000000000000
-      internalID: 7327221540768993028
+      spriteID: b327588a388f8f520800000000000000
+      internalID: 2736210017979298363
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Cartografo3_0: 7327221540768993028
+      Lampionaio_0: 2736210017979298363
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

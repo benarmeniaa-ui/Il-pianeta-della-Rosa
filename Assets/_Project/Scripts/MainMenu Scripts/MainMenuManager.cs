@@ -4,23 +4,36 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     [Header("Pannelli UI")]
-    public GameObject mainButtonsPanel;  // Il pannello con Start, Level Select, ecc.
-    public GameObject levelSelectPanel;  // Il pannello con il carosello dei pianeti
-    public GameObject creditsPanel;      // Il pannello con i nomi degli autori
+    public GameObject mainButtonsPanel;
+    public GameObject levelSelectPanel;
+    public GameObject creditsPanel;
+
+    [Header("Riferimenti Esterni")]
+    public LevelSelector levelSelector; // Trascina qui l'oggetto che ha lo script LevelSelector
 
     void Start()
     {
-        // All'avvio, mostriamo solo i tasti principali
         ShowMainButtons();
     }
 
-    // --- FUNZIONI PER I BOTTONI ---
-
-    public void StartGame()
+    // --- NUOVA FUNZIONE RESET ---
+    public void ResetProgress()
     {
-        // Carica direttamente il Livello 1 (Index 1 nelle Build Settings)
-        SceneManager.LoadScene(1);
+        // Cancella tutti i salvataggi (livelli sbloccati)
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+        
+        Debug.Log("Progressi resettati!");
+
+        // Se il LevelSelector è assegnato, forza l'aggiornamento visivo dei pianeti
+        if (levelSelector != null)
+        {
+            levelSelector.UpdateVisuals();
+        }
     }
+
+    // --- FUNZIONI ESISTENTI ---
+    public void StartGame() { SceneManager.LoadScene(1); }
 
     public void OpenLevelSelect()
     {
@@ -45,13 +58,10 @@ public class MainMenuManager : MonoBehaviour
 
     public void ExitGame()
     {
-        Debug.Log("Uscita dal gioco...");
-
-        // Se siamo dentro l'Editor di Unity
+        Debug.Log("Uscita...");
         #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
         #else
-            // Se il gioco è buildato (versione finale)
             Application.Quit();
         #endif
     }

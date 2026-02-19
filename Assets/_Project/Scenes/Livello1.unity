@@ -1987,7 +1987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5, g: 0, b: 0.01685381, a: 0.5882353}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3928,11 +3928,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1390080680764648139, guid: 683bda60f1877cd4ca8379d815990dd5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.85
+      value: -6.39
       objectReference: {fileID: 0}
     - target: {fileID: 1390080680764648139, guid: 683bda60f1877cd4ca8379d815990dd5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.06
+      value: 1.92
       objectReference: {fileID: 0}
     - target: {fileID: 1390080680764648139, guid: 683bda60f1877cd4ca8379d815990dd5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3965,6 +3965,14 @@ PrefabInstance:
     - target: {fileID: 1390080680764648139, guid: 683bda60f1877cd4ca8379d815990dd5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250263806078070876, guid: 683bda60f1877cd4ca8379d815990dd5, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.8518518
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250263806078070876, guid: 683bda60f1877cd4ca8379d815990dd5, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.8518518
       objectReference: {fileID: 0}
     - target: {fileID: 6809664358155959372, guid: 683bda60f1877cd4ca8379d815990dd5, type: 3}
       propertyPath: m_Name

@@ -1,15 +1,30 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using TMPro;
 
 public class LevelSelector : MonoBehaviour
 {
+    [System.Serializable]
+    public class PlanetSprites
+    {
+        public string planetName;    // Es: "Marte"
+        public Sprite unlockedPhoto; 
+        public Sprite lockedPhoto;   
+        public TextMeshProUGUI nameText; 
+    }
+
     [Header("Riferimenti")]
-    public RectTransform container; // Trascina qui il LevelContainer
+    public RectTransform container; 
+    public Image[] planetUIElements; 
+
+    [Header("Impostazioni Grafiche")]
+    public PlanetSprites[] planetGallery; 
     
-    [Header("Impostazioni")]
-    public float spaceBetweenPlanets = 8f; // La distanza esatta tra un pianeta e l'altro
-    public float lerpSpeed = 10f;             // Velocità della transizione fluida
+    [Header("Movimento")]
+    public float spaceBetweenPlanets = 1000f; 
+    public float lerpSpeed = 10f;             
     public int totalLevels = 8;
 
     private int currentIndex = 0;
@@ -17,13 +32,15 @@ public class LevelSelector : MonoBehaviour
 
     void Start()
     {
-        // Posizione iniziale (Pianeta 1 al centro)
         targetPos = container.localPosition;
+        UpdateVisuals();
     }
+
+    void OnEnable() { UpdateVisuals(); }
 
     void Update()
     {
-        // Spostamento tra i pianeti (TAC TAC)
+        // Navigazione A/D
         if (Keyboard.current.dKey.wasPressedThisFrame && currentIndex < totalLevels - 1)
         {
             currentIndex++;
@@ -35,28 +52,54 @@ public class LevelSelector : MonoBehaviour
             UpdateTargetPosition();
         }
 
-        // Movimento fluido verso la posizione target
         container.localPosition = Vector3.Lerp(container.localPosition, targetPos, Time.deltaTime * lerpSpeed);
 
-        // Selezione con E
+        // SELEZIONE LIVELLO (Tasto E)
         if (Keyboard.current.eKey.wasPressedThisFrame)
         {
             SelectLevel();
         }
     }
 
-    void UpdateTargetPosition()
+    void UpdateTargetPosition() { targetPos = new Vector3(-currentIndex * spaceBetweenPlanets, 0, 0); }
+
+    public void UpdateVisuals()
     {
-        // Se il pianeta 1 è a 0 e il pianeta 2 è a 1000, 
-        // per centrare il pianeta 2 dobbiamo muovere il container a -1000.
-        targetPos = new Vector3(-currentIndex * spaceBetweenPlanets, 0, 0);
+        // Forza lo sblocco del primo livello
+        PlayerPrefs.SetInt("Level_1_Unlocked", 1);
+
+        for (int i = 0; i < planetUIElements.Length; i++)
+        {
+            int levelNum = i + 1;
+            bool isUnlocked = PlayerPrefs.GetInt("Level_" + levelNum + "_Unlocked", 0) == 1;
+
+            if (isUnlocked)
+            {
+                planetUIElements[i].sprite = planetGallery[i].unlockedPhoto;
+                if(planetGallery[i].nameText != null) planetGallery[i].nameText.text = planetGallery[i].planetName;
+            }
+            else
+            {
+                planetUIElements[i].sprite = planetGallery[i].lockedPhoto;
+                if(planetGallery[i].nameText != null) planetGallery[i].nameText.text = "???";
+            }
+        }
     }
 
     void SelectLevel()
     {
-        // Carica i livelli (al momento solo i primi 2)
-        if (currentIndex == 0) SceneManager.LoadScene("Livello1");
-        else if (currentIndex == 1) SceneManager.LoadScene("Livello2");
-        else Debug.Log("Pianeta " + (currentIndex + 1) + " non ancora esplorabile!");
+        int levelToLoad = currentIndex + 1;
+        bool isUnlocked = PlayerPrefs.GetInt("Level_" + levelToLoad + "_Unlocked", 0) == 1;
+
+        if (isUnlocked)
+        {
+            Time.timeScale = 1f;
+            // Carica la scena basandosi sul nome "Livello" + numero (es: Livello1, Livello2)
+            SceneManager.LoadScene("Livello" + levelToLoad);
+        }
+        else
+        {
+            Debug.Log("Pianeta " + levelToLoad + " è ancora bloccato!");
+        }
     }
 }

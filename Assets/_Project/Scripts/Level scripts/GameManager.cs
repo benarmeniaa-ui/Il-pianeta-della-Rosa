@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     [Header("UI Panels")]
     [SerializeField] private GameObject gameOverUI;
-    [SerializeField] private GameObject victoryUI; // Trascina qui il pannello vittoria
+    [SerializeField] private GameObject victoryUI; 
 
     [Header("Game Stats")]
     public int lives = 10;
@@ -34,17 +34,15 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        // Riavvio rapido in caso di sconfitta
         if (isGameOver && Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame)
         {
             RestartGame();
         }
     }
 
-    // --- GESTIONE SCONFITTA ---
     public void PlayerHit()
     {
-        if (isVictory) return; // Non morire se hai già vinto!
+        if (isVictory) return; 
 
         lives--;
         if (lives <= 0) GameOver();
@@ -58,16 +56,19 @@ public class GameManager : MonoBehaviour
     }
 
     // --- GESTIONE VITTORIA ---
-    public void WinGame()
-    {
-        if (isGameOver) return; // Non vincere se sei già morto!
+ public void WinGame()
+{
+    if (isGameOver) return;
+    isVictory = true;
 
-        isVictory = true;
-        if (victoryUI != null) victoryUI.SetActive(true);
-        Time.timeScale = 0f; // Blocca il gioco per mostrare il menu
-    }
+    // Se siamo nel Livello 1, sblocca il Livello 2
+    int nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
+    PlayerPrefs.SetInt("Level_" + nextLevel + "_Unlocked", 1);
+    PlayerPrefs.Save();
 
-    // --- NAVIGAZIONE SCENE ---
+    if (victoryUI != null) victoryUI.SetActive(true);
+    Time.timeScale = 0f;
+}
     public void RestartGame()
     {
         Time.timeScale = 1f;
@@ -79,7 +80,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
-        // Controllo se esiste una scena successiva
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
             SceneManager.LoadScene(nextSceneIndex);
@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("Nessun altro livello trovato! Torno al menu.");
-            SceneManager.LoadScene(0); // Torna al Main Menu
+            SceneManager.LoadScene(0); 
         }
     }
 }
