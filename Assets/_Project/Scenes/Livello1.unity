@@ -304,8 +304,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   sfxSource: {fileID: 48012925}
+  globalVolume: 0.4
   playerAttackSound: {fileID: 8300000, guid: 78483767174ebf34ab774d1217da44e3, type: 3}
-  bossAttackSound: {fileID: 0}
+  bossAttackSound: {fileID: 8300000, guid: 5117f405abae9724090c0472d1a7c892, type: 3}
   playerHurtSound: {fileID: 0}
   bossHurtSound: {fileID: 0}
   buttonHoverSound: {fileID: 0}

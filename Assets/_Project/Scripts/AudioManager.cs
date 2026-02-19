@@ -7,6 +7,9 @@ public class AudioManager : MonoBehaviour
     [Header("Sorgente Audio")]
     [SerializeField] private AudioSource sfxSource;
 
+    [Range(0f, 1f)] // Crea una barra trascinabile nell'Inspector
+    public float globalVolume = 0.5f;
+
     [Header("Suoni Attacco")]
     public AudioClip playerAttackSound;
     public AudioClip bossAttackSound;
@@ -22,11 +25,13 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        // Singleton: garantisce che ci sia solo un AudioManager
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Resta attivo anche cambiando scena
+            DontDestroyOnLoad(gameObject);
+            
+            // Applica il volume iniziale alla sorgente
+            if (sfxSource != null) sfxSource.volume = globalVolume;
         }
         else
         {
@@ -37,9 +42,20 @@ public class AudioManager : MonoBehaviour
     // Funzione universale per riprodurre un suono
     public void PlaySound(AudioClip clip)
     {
-        if (clip != null)
+        if (clip != null && sfxSource != null)
         {
-            sfxSource.PlayOneShot(clip);
+            // Usiamo il volume globale impostato
+            sfxSource.PlayOneShot(clip, globalVolume);
+        }
+    }
+
+    // FUNZIONE PER LA UI: Collega questa funzione a uno Slider
+    public void SetVolume(float volume)
+    {
+        globalVolume = Mathf.Clamp01(volume); // Assicura che sia tra 0 e 1
+        if (sfxSource != null)
+        {
+            sfxSource.volume = globalVolume;
         }
     }
 }
