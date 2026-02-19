@@ -1139,7 +1139,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 71.46, y: -71.46}
+  m_AnchoredPosition: {x: 71.45999, y: -71.45999}
   m_SizeDelta: {x: 86.94, y: 86.94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &376358161
@@ -2794,7 +2794,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 71.46, y: -71.46}
+  m_AnchoredPosition: {x: 71.45999, y: -71.45999}
   m_SizeDelta: {x: 86.94, y: 86.94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1216886455
@@ -4245,7 +4245,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   levelGroups:
-  - lockedVisual: {fileID: 768062954}
+  - planetNameDebug: 
+    lockedVisual: {fileID: 768062954}
     unlockedVisual: {fileID: 206268884}
   container: {fileID: 2055311931}
   spaceBetweenPlanets: 970
@@ -4550,8 +4551,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 236630093}
-  - {fileID: 768062955}
   - {fileID: 206268885}
+  - {fileID: 768062955}
   - {fileID: 2091374314}
   m_Father: {fileID: 1882345652}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
