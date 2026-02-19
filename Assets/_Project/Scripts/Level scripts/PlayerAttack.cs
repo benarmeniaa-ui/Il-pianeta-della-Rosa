@@ -10,17 +10,15 @@ public class PlayerAttack : MonoBehaviour
     public float fireRate = 0.5f;
 
     private float lastShotTime = 0f;
-    private PlayerMovement movementScript; // Riferimento all'altro script
+    private PlayerMovement movementScript;
 
     void Awake()
     {
-        // Troviamo lo script di movimento sullo stesso oggetto
         movementScript = GetComponent<PlayerMovement>();
     }
 
     void Update()
     {
-        // Se usi il nuovo Input System senza Action Map (come nel tuo esempio):
         if (Keyboard.current.spaceKey.wasPressedThisFrame && Time.time > lastShotTime + fireRate)
         {
             Shoot();
@@ -36,7 +34,15 @@ public class PlayerAttack : MonoBehaviour
 
         lastShotTime = Time.time;
 
-        // 2. Comunicazione: Diciamo al PlayerMovement di animare l'attacco
+        // --- AGGIUNTA AUDIO ---
+        // Richiamiamo l'AudioManager per riprodurre il suono dell'attacco
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySound(AudioManager.Instance.playerAttackSound);
+        }
+        // ----------------------
+
+        // 2. Comunicazione: Animazione
         if (movementScript != null)
         {
             movementScript.TriggerAttackAnimation();
