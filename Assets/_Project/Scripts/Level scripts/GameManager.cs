@@ -43,23 +43,31 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void PlayerHit()
+   public void PlayerHit()
+{
+    if (isVictory || isGameOver) return; 
+
+    lives--;
+
+    // --- NUOVA LOGICA FLASH ---
+    // Cerchiamo il player nella scena e attiviamo il flash
+    PlayerMovement player = Object.FindFirstObjectByType<PlayerMovement>();
+    if (player != null)
     {
-        if (isVictory || isGameOver) return; 
-
-        lives--;
-
-        // --- DEBUG E AUDIO ---
-        Debug.Log($"<color=red>PLAYER COLPITO!</color> Vite rimaste: <color=yellow>{lives}</color>");
-        
-        if (AudioManager.Instance != null)
-        {
-            AudioManager.Instance.PlaySound(AudioManager.Instance.playerHurtSound);
-        }
-        // ----------------------
-
-        if (lives <= 0) GameOver();
+        player.TriggerHurtFlash();
     }
+    // ---------------------------
+
+    // --- DEBUG E AUDIO ---
+    Debug.Log($"<color=red>PLAYER COLPITO!</color> Vite rimaste: <color=yellow>{lives}</color>");
+    
+    if (AudioManager.Instance != null)
+    {
+        AudioManager.Instance.PlaySound(AudioManager.Instance.playerHurtSound);
+    }
+
+    if (lives <= 0) GameOver();
+}
 
     private void GameOver()
     {

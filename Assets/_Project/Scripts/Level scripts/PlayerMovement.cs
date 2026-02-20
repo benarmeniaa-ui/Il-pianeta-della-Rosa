@@ -49,6 +49,22 @@ public class PlayerMovement : MonoBehaviour
         currentFrame = 0;
         animTimer = 0f;
     }
+    // Aggiungi questo metodo nel PlayerMovement.cs
+public void TriggerHurtFlash()
+{
+    StartCoroutine(HurtFlashRoutine());
+}
+
+private System.Collections.IEnumerator HurtFlashRoutine()
+{
+    // Usiamo il verde come il boss, o Color.red se preferisci
+    Color flashColor = Color.green; 
+    Color originalColor = Color.white; // O il colore base del tuo sprite
+
+    spriteRenderer.color = flashColor;
+    yield return new WaitForSeconds(0.1f);
+    spriteRenderer.color = originalColor;
+}
 
     void Update()
     {
