@@ -8,6 +8,10 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveInput;
 
+    [Header("Limiti Scena (Muri Invisibili)")]
+    public float xLimit = 8.5f; // Regola questi valori nell'Inspector
+    public float yLimit = 4.5f;
+
     [Header("Riferimenti")]
     public SpriteRenderer spriteRenderer;
 
@@ -28,6 +32,9 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
+        
+        // Per sicurezza, impostiamo la gravità a 0 se usiamo i limiti via script
+        if (rb != null) rb.gravityScale = 0;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -35,7 +42,6 @@ public class PlayerMovement : MonoBehaviour
         moveInput = context.ReadValue<Vector2>();
     }
 
-    // FUNZIONE PUBBLICA: Questa verrà chiamata dallo script PlayerAttack
     public void TriggerAttackAnimation()
     {
         isAttacking = true;
@@ -51,7 +57,14 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(moveInput.x * speed, rb.linearVelocity.y);
+        // Movimento
+        rb.linearVelocity = new Vector2(moveInput.x * speed, moveInput.y * speed);
+
+        // --- APPLICAZIONE LIMITI (MURI) ---
+        float clampedX = Mathf.Clamp(transform.position.x, -xLimit, xLimit);
+        float clampedY = Mathf.Clamp(transform.position.y, -yLimit, yLimit);
+        transform.position = new Vector3(clampedX, clampedY, transform.position.z);
+        // ----------------------------------
 
         if (moveInput.x > 0.01f) transform.localScale = new Vector3(1, 1, 1);
         else if (moveInput.x < -0.01f) transform.localScale = new Vector3(-1, 1, 1);
@@ -67,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
             attackTimer -= Time.deltaTime;
             if (attackTimer <= 0) isAttacking = false;
         }
-        else if (Mathf.Abs(moveInput.x) > 0.1f)
+        else if (moveInput.magnitude > 0.1f) // Cambiato per rilevare movimento anche verticale
         {
             currentArray = walkSprites;
         }

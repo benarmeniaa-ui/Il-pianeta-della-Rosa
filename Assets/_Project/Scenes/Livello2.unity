@@ -4450,6 +4450,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: xLimit
+      value: 5.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 1192337563}

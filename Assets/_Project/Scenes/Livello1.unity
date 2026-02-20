@@ -4000,7 +4000,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 3.13, z: 0}
-  m_LocalScale: {x: 15.12, y: 0.27, z: 1}
+  m_LocalScale: {x: 11.68, y: 0.27, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -4535,6 +4535,18 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.039159536
       objectReference: {fileID: 0}
+    - target: {fileID: 3476702876240663966, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476702876240663966, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3945572602886210136, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4358699271462395288, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
       propertyPath: m_Name
       value: Player
@@ -4586,6 +4598,10 @@ PrefabInstance:
     - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
       propertyPath: speed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: xLimit
+      value: 5.1
       objectReference: {fileID: 0}
     - target: {fileID: 6674642902698610231, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
       propertyPath: firePoint
@@ -4706,6 +4722,10 @@ PrefabInstance:
     - target: {fileID: 7047433575931771651, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
       propertyPath: m_SortingLayerID
       value: -1454311909
+      objectReference: {fileID: 0}
+    - target: {fileID: 7047433575931771651, guid: 4066d422170598b48b82b8cd93bcebd6, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
