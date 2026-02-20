@@ -30,6 +30,9 @@ public class GameManager : MonoBehaviour
     {
         if (gameOverUI != null) gameOverUI.SetActive(false);
         if (victoryUI != null) victoryUI.SetActive(false);
+        
+        // Debug iniziale per confermare le vite all'avvio
+        Debug.Log($"<color=cyan>GameManager:</color> Partita iniziata. Vite disponibili: {lives}");
     }
 
     private void Update()
@@ -42,28 +45,37 @@ public class GameManager : MonoBehaviour
 
     public void PlayerHit()
     {
-        if (isVictory) return; 
+        if (isVictory || isGameOver) return; 
 
         lives--;
+
+        // --- DEBUG E AUDIO ---
+        Debug.Log($"<color=red>PLAYER COLPITO!</color> Vite rimaste: <color=yellow>{lives}</color>");
+        
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySound(AudioManager.Instance.playerHurtSound);
+        }
+        // ----------------------
+
         if (lives <= 0) GameOver();
     }
 
     private void GameOver()
     {
         isGameOver = true;
+        Debug.Log("<color=black><b>GAME OVER</b></color>");
         if (gameOverUI != null) gameOverUI.SetActive(true);
         Time.timeScale = 0f; 
     }
 
-    // --- GESTIONE VITTORIA ---
     public void WinGame()
     {
         if (isGameOver || isVictory) return; 
         
         isVictory = true;
+        Debug.Log("<color=green>VITTORIA!</color>");
 
-        // --- LOGICA DI SBLOCCO PER IL PROTOTIPO ---
-        // Otteniamo l'indice della scena attuale
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
         // Se abbiamo vinto il Livello 1 (Index 1), sblocchiamo il Livello 2
@@ -71,9 +83,8 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("Level_2_Unlocked", 1);
             PlayerPrefs.Save();
-            Debug.Log("Livello 2 Sbloccato con successo!");
+            Debug.Log("<color=magenta>Livello 2 Sbloccato!</color>");
         }
-        // ------------------------------------------
 
         if (victoryUI != null) victoryUI.SetActive(true);
         Time.timeScale = 0f; 
@@ -96,7 +107,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Nessun altro livello trovato! Torno al menu.");
+            Debug.Log("Torna al menu.");
             SceneManager.LoadScene(0); 
         }
     }
