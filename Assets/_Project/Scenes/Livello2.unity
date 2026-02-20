@@ -3227,8 +3227,9 @@ MonoBehaviour:
   globalVolume: 0.4
   playerAttackSound: {fileID: 8300000, guid: 78483767174ebf34ab774d1217da44e3, type: 3}
   bossAttackSound: {fileID: 8300000, guid: 5117f405abae9724090c0472d1a7c892, type: 3}
-  playerHurtSound: {fileID: 0}
-  bossHurtSound: {fileID: 0}
+  satelliteAttackSound: {fileID: 8300000, guid: ac2d56844898d5d418aa7af8b31a2624, type: 3}
+  playerHurtSound: {fileID: 8300000, guid: c41f99a35ba126641bfd60b497444c0a, type: 3}
+  bossHurtSound: {fileID: 8300000, guid: 0b079537cdeab50418e63e7ef14e810f, type: 3}
   buttonHoverSound: {fileID: 0}
   buttonClickSound: {fileID: 0}
   levelSelectSound: {fileID: 0}
@@ -4173,7 +4174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6809664358155959372, guid: 683bda60f1877cd4ca8379d815990dd5, type: 3}
       propertyPath: m_Name
-      value: Enemy
+      value: Satellite
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

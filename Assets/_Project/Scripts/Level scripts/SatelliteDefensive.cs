@@ -47,22 +47,24 @@ public class SatelliteDefensive : MonoBehaviour
         }
     }
 
-    void Shoot()
+  void Shoot()
+{
+    if (projectilePrefab == null || firePoint == null) return;
+
+    // --- MODIFICATO QUI ---
+    if (AudioManager.Instance != null)
     {
-        if (projectilePrefab == null || firePoint == null) return;
-
-        // Suono (opzionale: usa lo stesso del boss o uno dedicato nell'AudioManager)
-        if (AudioManager.Instance != null)
-        {
-            AudioManager.Instance.PlaySound(AudioManager.Instance.bossAttackSound);
-        }
-
-        GameObject proj = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-        Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
-        
-        if (rb != null)
-        {
-            rb.linearVelocity = Vector2.down * projectileSpeed;
-        }
+        // Ora usa satelliteAttackSound invece di bossAttackSound
+        AudioManager.Instance.PlaySound(AudioManager.Instance.satelliteAttackSound);
     }
+    // ----------------------
+
+    GameObject proj = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+    Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
+    
+    if (rb != null)
+    {
+        rb.linearVelocity = Vector2.down * projectileSpeed;
+    }
+}
 }
